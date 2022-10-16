@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import ImageGallery from './ImageGallery';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <from>
       <input type="text" placeholder="画像を探す" />
       </from>
+      <ImageGallery />
     </div>
   );
 }
