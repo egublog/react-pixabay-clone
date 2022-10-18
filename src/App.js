@@ -3,7 +3,7 @@ import './App.css';
 import ImageGallery from './ImageGallery';
 
 function App() {
-  const [inputText, setInputText] = useState("");
+  const [fetchData, setFetchData] = useState([]);
   const ref = useRef();
 
   const handleSubmit = (e) => {
@@ -18,8 +18,7 @@ function App() {
     fetch(endpointURL)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setInputText(data.hits);
+        setFetchData(data.hits);
       })
       .catch((error) => {
         console.log(error);
@@ -33,7 +32,7 @@ function App() {
       <from onSubmit={(e) => handleSubmit(e)}>
         <input type="text" placeholder="画像を探す" ref={ref} />
       </from>
-      <ImageGallery />
+      <ImageGallery fetchData={fetchData}/>
     </div>
   );
 }
