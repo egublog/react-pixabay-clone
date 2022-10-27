@@ -34,9 +34,9 @@ function App() {
     <div>
       <div className="container">
         <h2>My Pixabay</h2>
-        <from onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <input type="text" placeholder="画像を探す" ref={ref} />
-        </from>
+        </form>
         <ImageGallery fetchData={fetchData} />
       </div>
     </div>
