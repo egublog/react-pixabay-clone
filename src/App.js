@@ -4,6 +4,7 @@ import ImageGallery from './ImageGallery';
 
 function App() {
   const [fetchData, setFetchData] = useState([]);
+  // useRefについて調べる
   const ref = useRef();
 
   const handleSubmit = (e) => {
@@ -14,7 +15,6 @@ function App() {
     // APIのURL
     const endpointURL = 'https://pixabay.com/api/?key=' + API_KEY + '&q=' + ref.current.value + '&image_type=photo';
 
-    // APIを叩く(データフェッチング)
     fetch(endpointURL)
       .then((response) => response.json())
       .then((data) => {
