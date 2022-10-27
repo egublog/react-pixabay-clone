@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
-import './App.css';
-import ImageGallery from './ImageGallery';
+import { useRef, useState } from "react";
+import "./App.css";
+import ImageGallery from "./ImageGallery";
 
 function App() {
   const [fetchData, setFetchData] = useState([]);
@@ -11,9 +11,14 @@ function App() {
     e.preventDefault();
     console.log(ref.current.value);
 
-    const API_KEY = '30631304-504e1a4f405e428c58b536e1a';
+    const API_KEY = "30631304-504e1a4f405e428c58b536e1a";
     // APIのURL
-    const endpointURL = 'https://pixabay.com/api/?key=' + API_KEY + '&q=' + ref.current.value + '&image_type=photo';
+    const endpointURL =
+      "https://pixabay.com/api/?key=" +
+      API_KEY +
+      "&q=" +
+      ref.current.value +
+      "&image_type=photo";
 
     fetch(endpointURL)
       .then((response) => response.json())
@@ -23,16 +28,17 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
-
   };
 
   return (
-    <div className="container">
-      <h2>My Pixabay</h2>
-      <from onSubmit={(e) => handleSubmit(e)}>
-        <input type="text" placeholder="画像を探す" ref={ref} />
-      </from>
-      <ImageGallery fetchData={fetchData}/>
+    <div>
+      <div className="container">
+        <h2>My Pixabay</h2>
+        <from onSubmit={(e) => handleSubmit(e)}>
+          <input type="text" placeholder="画像を探す" ref={ref} />
+        </from>
+        <ImageGallery fetchData={fetchData} />
+      </div>
     </div>
   );
 }
